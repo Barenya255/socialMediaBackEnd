@@ -10,4 +10,6 @@ public interface CommentsService {
     List<Comments> viewComments(Long identity);
 
     Comments deleteComment(Long identity);
+
+    Comments editComment(Comments comment);
 }

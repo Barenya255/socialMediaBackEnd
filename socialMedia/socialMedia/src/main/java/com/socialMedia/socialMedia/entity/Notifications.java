@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GeneratorType;
 
+import java.time.LocalDateTime;
+import java.util.Collection;
+
 @Entity
 @Table(name = "tbl_notifications")
 @Data
@@ -24,7 +27,7 @@ public class Notifications {
     @Id
     private Long notification_id;
     private String body;
-    private Long time_stamp;
+    private LocalDateTime timeStamp;
     private Long likes;
 
 
@@ -33,8 +36,17 @@ public class Notifications {
         return "Notifications{" +
                 "notification_id=" + notification_id +
                 ", body='" + body + '\'' +
-                ", time_stamp=" + time_stamp +
+                ", time_stamp=" + timeStamp +
                 ", likes=" + likes +
                 '}';
     }
+
+    @OneToMany(cascade = CascadeType.ALL,
+    fetch = FetchType.LAZY)
+    @JoinColumn(
+            name = "notification_id",
+            referencedColumnName = "notificationId"
+    )
+    private Collection<Comments> comments;
+
 }

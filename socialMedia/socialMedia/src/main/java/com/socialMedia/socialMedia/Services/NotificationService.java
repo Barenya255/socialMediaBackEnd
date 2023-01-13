@@ -12,4 +12,6 @@ public interface NotificationService {
     Notifications updateNotifications(Long identity, Notifications body);
 
     void deleleteNotification(Long identity);
+
+    String viewOneNotification(Long identity);
 }

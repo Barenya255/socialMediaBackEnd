@@ -43,6 +43,12 @@ public class NotificationsController {
         return notificationService.viewAllNotifications();
     }
 
+    /*The following will enable viewing only a particular post and all the comments withing it*/
+    @GetMapping("api/v1/notifications/{id}")
+    public String viewOneNotification(@PathVariable("id") Long identity){
+        return notificationService.viewOneNotification(identity);
+    }
+
     /*PUT http request, we use this to make changes to the body of the notification.*/
     @PutMapping("api/v1/notifications/{id}")
     public Notifications updateNotifications(@PathVariable("id") Long identity, @RequestBody Notifications body){

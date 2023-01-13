@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -33,6 +35,8 @@ public class User_data {
     )
     @Column(name = "user_id")
     private Long UUID;
+
+    private LocalDateTime timeStamp;
     @Column(
             name = "First Name",
             nullable = false

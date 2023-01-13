@@ -29,4 +29,11 @@ public class CommentsServiceImpl implements CommentsService{
         System.out.println("The comment has been successfully deleted");
         return null;
     }
+
+    @Override
+    public Comments editComment(Comments newComment) {
+        Comments comment = commentsRepository.findById(newComment.getCommentId()).get();
+        comment.setCommentBody(newComment.getCommentBody());
+        return commentsRepository.save(comment);
+    }
 }
