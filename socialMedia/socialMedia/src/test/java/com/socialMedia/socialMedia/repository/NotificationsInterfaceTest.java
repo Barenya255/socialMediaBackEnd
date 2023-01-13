@@ -11,13 +11,12 @@ import java.util.List;
 @SpringBootTest
 class NotificationsInterfaceTest {
     @Autowired
-    private NotificationsInterface notificationsInterface;
+    private NotificationRepository notificationsInterface;
 
     @Test
     public void insertNotif(){
         Notifications notification = Notifications.builder()
                 .body("I am feeling depressed with 60 others")
-                .time_stamp(0L)
                 .likes(0L)
                 .build();
         notificationsInterface.save(notification);
